@@ -1,0 +1,172 @@
+~/.config/nvim>brew install llvm
+==> Would install 1 formula:
+llvm
+==> Downloading https://ghcr.io/v2/homebrew/core/llvm/manifests/22.1.7_1
+########################################################################################################## 100.0%
+==> Would install 8 dependencies for llvm:
+ca-certificates
+openssl@3
+readline
+sqlite
+xz
+zstd
+python@3.14
+z3
+==> Do you want to proceed with the installation? [y/n]
+wenyuc 06-17 11:09 ~/.config/nvim>brew install llvm
+==> Would install 1 formula:
+llvm
+==> Downloading https://ghcr.io/v2/homebrew/core/llvm/manifests/22.1.7_1
+Already downloaded: /Users/wenyuc/Library/Caches/Homebrew/downloads/aa675e644202ec80321d8f55b36c0b35b264a0af52eab0862e91a5410033ac4c--llvm-22.1.7_1.bottle_manifest.json
+==> Would install 8 dependencies for llvm:
+ca-certificates
+openssl@3
+readline
+sqlite
+xz
+zstd
+python@3.14
+z3
+==> Do you want to proceed with the installation? [y/n]
+==> Fetching downloads for: llvm
+✔︎ Bottle Manifest ca-certificates (2026-05-14)                                        Downloaded    1.7KB/  1.7KB
+✔︎ Bottle Manifest openssl@3 (3.6.2)                                                   Downloaded   12.0KB/ 12.0KB
+✔︎ Bottle Manifest readline (8.3.3)                                                    Downloaded   10.0KB/ 10.0KB
+✔︎ Bottle Manifest sqlite (3.53.2)                                                     Downloaded   11.8KB/ 11.8KB
+✔︎ Bottle Manifest xz (5.8.3)                                                          Downloaded   11.8KB/ 11.8KB
+✔︎ Bottle Manifest zstd (1.5.7_1)                                                      Downloaded   13.2KB/ 13.2KB
+✔︎ Bottle Manifest z3 (4.16.0)                                                         Downloaded    7.6KB/  7.6KB
+✔︎ Bottle ca-certificates (2026-05-14)                                                 Downloaded  112.1KB/112.1KB
+✔︎ Bottle Manifest python@3.14 (3.14.6)                                                Downloaded   31.3KB/ 31.3KB
+✔︎ Bottle readline (8.3.3)                                                             Downloaded  737.4KB/737.4KB
+✔︎ Bottle xz (5.8.3)                                                                   Downloaded  752.9KB/752.9KB
+✔︎ Bottle zstd (1.5.7_1)                                                               Downloaded  929.3KB/929.3KB
+✔︎ Bottle sqlite (3.53.2)                                                              Downloaded    2.5MB/  2.5MB
+✔︎ Bottle z3 (4.16.0)                                                                  Downloaded   14.2MB/ 14.2MB
+✔︎ Bottle python@3.14 (3.14.6)                                                         Downloaded   19.2MB/ 19.2MB
+✔︎ Bottle openssl@3 (3.6.2)                                                            Downloaded   10.1MB/ 10.1MB
+✔︎ Bottle llvm (22.1.7_1)                                                              Downloaded  386.2MB/386.2MB
+==> Installing dependencies for llvm: ca-certificates, openssl@3, readline, sqlite, xz, zstd, python@3.14 and z3
+==> Installing llvm dependency: ca-certificates
+==> Pouring ca-certificates--2026-05-14.all.bottle.tar.gz
+==> Regenerating CA certificate bundle from keychain, this may take a while...
+🍺  /usr/local/Cellar/ca-certificates/2026-05-14: 4 files, 199.2KB
+==> Installing llvm dependency: openssl@3
+==> Pouring openssl@3--3.6.2.sequoia.bottle.tar.gz
+==> Caveats
+To add additional certificates, place .pem files in
+  /usr/local/etc/openssl@3/certs
+
+and run
+  /usr/local/opt/openssl@3/bin/c_rehash
+
+OpenSSL 3.6 is only supported until 2026-11-01 so the `openssl@3`
+formula will be downgraded to OpenSSL 3.5 (LTS) in a future update.
+==> Summary
+🍺  /usr/local/Cellar/openssl@3/3.6.2: 7,627 files, 38MB
+==> Installing llvm dependency: readline
+==> Pouring readline--8.3.3.sequoia.bottle.tar.gz
+🍺  /usr/local/Cellar/readline/8.3.3: 56 files, 2.6MB
+==> Installing llvm dependency: sqlite
+==> Pouring sqlite--3.53.2.sequoia.bottle.tar.gz
+🍺  /usr/local/Cellar/sqlite/3.53.2: 13 files, 5.3MB
+==> Installing llvm dependency: xz
+==> Pouring xz--5.8.3.sequoia.bottle.tar.gz
+🍺  /usr/local/Cellar/xz/5.8.3: 96 files, 2.5MB
+==> Installing llvm dependency: zstd
+==> Pouring zstd--1.5.7_1.sequoia.bottle.tar.gz
+🍺  /usr/local/Cellar/zstd/1.5.7_1: 32 files, 2.5MB
+==> Installing llvm dependency: python@3.14
+==> Pouring python@3.14--3.14.6.sequoia.bottle.tar.gz
+🍺  /usr/local/Cellar/python@3.14/3.14.6: 3,746 files, 71.4MB
+==> Installing llvm dependency: z3
+==> Pouring z3--4.16.0.sonoma.bottle.tar.gz
+🍺  /usr/local/Cellar/z3/4.16.0: 128 files, 34.5MB
+==> Installing llvm
+==> Pouring llvm--22.1.7_1.sonoma.bottle.tar.gz
+==> Caveats
+CLANG_CONFIG_FILE_SYSTEM_DIR: /usr/local/etc/clang
+CLANG_CONFIG_FILE_USER_DIR:   ~/.config/clang
+
+LLD is now provided in a separate formula:
+  brew install lld
+
+Using `clang`, `clang++`, etc., requires a CLT installation at `/Library/Developer/CommandLineTools`.
+If you don't want to install the CLT, you can write appropriate configuration files pointing to your
+SDK at ~/.config/clang.
+
+To use the bundled libunwind please use the following LDFLAGS:
+  LDFLAGS="-L/usr/local/opt/llvm/lib/unwind -lunwind"
+
+To use the bundled libc++ please use the following LDFLAGS:
+  LDFLAGS="-L/usr/local/opt/llvm/lib/c++ -L/usr/local/opt/llvm/lib/unwind -lunwind"
+Features newer than system libc++ will require the following define to enable
+(support for this may be removed in a future major LLVM release):
+  CPPFLAGS="-D_LIBCPP_DISABLE_AVAILABILITY"
+
+NOTE: You probably want to use the libunwind and libc++ provided by macOS unless you know what you're doing.
+
+llvm is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have llvm first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find llvm you may need to set:
+  export LDFLAGS="-L/usr/local/opt/llvm/lib"
+  export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
+For cmake to find llvm you may need to set:
+  export CMAKE_PREFIX_PATH="/usr/local/opt/llvm"
+==> Summary
+🍺  /usr/local/Cellar/llvm/22.1.7_1: 9,687 files, 1.7GB
+==> Running `brew cleanup llvm`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Caveats
+==> openssl@3
+To add additional certificates, place .pem files in
+  /usr/local/etc/openssl@3/certs
+
+and run
+  /usr/local/opt/openssl@3/bin/c_rehash
+
+OpenSSL 3.6 is only supported until 2026-11-01 so the `openssl@3`
+formula will be downgraded to OpenSSL 3.5 (LTS) in a future update.
+==> llvm
+CLANG_CONFIG_FILE_SYSTEM_DIR: /usr/local/etc/clang
+CLANG_CONFIG_FILE_USER_DIR:   ~/.config/clang
+
+LLD is now provided in a separate formula:
+  brew install lld
+
+Using `clang`, `clang++`, etc., requires a CLT installation at `/Library/Developer/CommandLineTools`.
+If you don't want to install the CLT, you can write appropriate configuration files pointing to your
+SDK at ~/.config/clang.
+
+To use the bundled libunwind please use the following LDFLAGS:
+  LDFLAGS="-L/usr/local/opt/llvm/lib/unwind -lunwind"
+
+To use the bundled libc++ please use the following LDFLAGS:
+  LDFLAGS="-L/usr/local/opt/llvm/lib/c++ -L/usr/local/opt/llvm/lib/unwind -lunwind"
+Features newer than system libc++ will require the following define to enable
+(support for this may be removed in a future major LLVM release):
+  CPPFLAGS="-D_LIBCPP_DISABLE_AVAILABILITY"
+
+NOTE: You probably want to use the libunwind and libc++ provided by macOS unless you know what you're doing.
+
+llvm is keg-only, which means it was not symlinked into /usr/local,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have llvm first in your PATH, run:
+  echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find llvm you may need to set:
+  export LDFLAGS="-L/usr/local/opt/llvm/lib"
+  export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
+For cmake to find llvm you may need to set:
+  export CMAKE_PREFIX_PATH="/usr/local/opt/llvm"
+wenyuc 06-17 11:11 ~/.config/nvim>

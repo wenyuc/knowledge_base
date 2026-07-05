@@ -1,0 +1,107 @@
+~>brew install --cask gcc-arm-embedded
+==> Downloading https://developer.arm.com/-/media/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-darwin-x86_64-arm-no
+==> Downloading from https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-d
+################################################################################################################################ 100.0%
+==> Installing Cask gcc-arm-embedded
+==> Running installer for gcc-arm-embedded with `sudo` (which may request your password)...
+Password:
+installer: Package name is arm-gnu-toolchain-14.2.rel1-darwin-x86_64-arm-none-eabi
+installer: Installing at base path /
+installer: The install was successful.
+==> Linking Binary 'arm-none-eabi-as' to '/usr/local/bin/arm-none-eabi-as'
+==> Linking Binary 'arm-none-eabi-c++' to '/usr/local/bin/arm-none-eabi-c++'
+==> Linking Binary 'arm-none-eabi-c++filt' to '/usr/local/bin/arm-none-eabi-c++filt'
+==> Linking Binary 'arm-none-eabi-cpp' to '/usr/local/bin/arm-none-eabi-cpp'
+==> Linking Binary 'arm-none-eabi-elfedit' to '/usr/local/bin/arm-none-eabi-elfedit'
+==> Linking Binary 'arm-none-eabi-g++' to '/usr/local/bin/arm-none-eabi-g++'
+==> Linking Binary 'arm-none-eabi-gcc' to '/usr/local/bin/arm-none-eabi-gcc'
+==> Linking Binary 'arm-none-eabi-gcc-14.2.1' to '/usr/local/bin/arm-none-eabi-gcc-14.2.1'
+==> Linking Binary 'arm-none-eabi-gcc-ar' to '/usr/local/bin/arm-none-eabi-gcc-ar'
+==> Linking Binary 'arm-none-eabi-gcc-nm' to '/usr/local/bin/arm-none-eabi-gcc-nm'
+==> Linking Binary 'arm-none-eabi-gcc-ranlib' to '/usr/local/bin/arm-none-eabi-gcc-ranlib'
+==> Linking Binary 'arm-none-eabi-gcov' to '/usr/local/bin/arm-none-eabi-gcov'
+==> Linking Binary 'arm-none-eabi-gcov-dump' to '/usr/local/bin/arm-none-eabi-gcov-dump'
+==> Linking Binary 'arm-none-eabi-gcov-tool' to '/usr/local/bin/arm-none-eabi-gcov-tool'
+==> Linking Binary 'arm-none-eabi-gdb' to '/usr/local/bin/arm-none-eabi-gdb'
+==> Linking Binary 'arm-none-eabi-gdb-add-index' to '/usr/local/bin/arm-none-eabi-gdb-add-index'
+==> Linking Binary 'arm-none-eabi-gfortran' to '/usr/local/bin/arm-none-eabi-gfortran'
+==> Linking Binary 'arm-none-eabi-gprof' to '/usr/local/bin/arm-none-eabi-gprof'
+==> Linking Binary 'arm-none-eabi-ld' to '/usr/local/bin/arm-none-eabi-ld'
+==> Linking Binary 'arm-none-eabi-ld.bfd' to '/usr/local/bin/arm-none-eabi-ld.bfd'
+==> Linking Binary 'arm-none-eabi-lto-dump' to '/usr/local/bin/arm-none-eabi-lto-dump'
+==> Linking Binary 'arm-none-eabi-nm' to '/usr/local/bin/arm-none-eabi-nm'
+==> Linking Binary 'arm-none-eabi-objcopy' to '/usr/local/bin/arm-none-eabi-objcopy'
+==> Linking Binary 'arm-none-eabi-objdump' to '/usr/local/bin/arm-none-eabi-objdump'
+==> Linking Binary 'arm-none-eabi-ranlib' to '/usr/local/bin/arm-none-eabi-ranlib'
+==> Linking Binary 'arm-none-eabi-readelf' to '/usr/local/bin/arm-none-eabi-readelf'
+==> Linking Binary 'arm-none-eabi-size' to '/usr/local/bin/arm-none-eabi-size'
+==> Linking Binary 'arm-none-eabi-strings' to '/usr/local/bin/arm-none-eabi-strings'
+==> Linking Binary 'arm-none-eabi-strip' to '/usr/local/bin/arm-none-eabi-strip'
+==> Linking Binary 'arm-none-eabi-ar' to '/usr/local/bin/arm-none-eabi-ar'
+==> Linking Binary 'arm-none-eabi-addr2line' to '/usr/local/bin/arm-none-eabi-addr2line'
+🍺  gcc-arm-embedded was successfully installed!
+wenyuc 06-16 16:39 ~>arm-none-eabi-gcc --version
+arm-none-eabi-gcc (Arm GNU Toolchain 14.2.Rel1 (Build arm-14.52)) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+wenyuc 06-16 16:46 ~>arm-none-eabi-gcc -v -E -x c - < /dev/null
+Using built-in specs.
+COLLECT_GCC=arm-none-eabi-gcc
+Target: arm-none-eabi
+Configured with: /Volumes/data/jenkins/workspace/GNU-toolchain/arm-14/src/gcc/configure --target=arm-none-eabi --prefix=/Volumes/data/jenkins/workspace/GNU-toolchain/arm-14/build-arm-none-eabi/install --with-gmp=/Volumes/data/jenkins/workspace/GNU-toolchain/arm-14/build-arm-none-eabi/host-tools --with-mpfr=/Volumes/data/jenkins/workspace/GNU-toolchain/arm-14/build-arm-none-eabi/host-tools --with-mpc=/Volumes/data/jenkins/workspace/GNU-toolchain/arm-14/build-arm-none-eabi/host-tools --with-isl=/Volumes/data/jenkins/workspace/GNU-toolchain/arm-14/build-arm-none-eabi/host-tools --disable-shared --disable-nls --disable-threads --disable-tls --enable-checking=release --enable-languages=c,c++,fortran --with-newlib --with-gnu-as --with-headers=yes --with-gnu-ld --with-native-system-header-dir=/include --with-sysroot=/Volumes/data/jenkins/workspace/GNU-toolchain/arm-14/build-arm-none-eabi/install/arm-none-eabi --with-bugurl=https://bugs.linaro.org/ --with-multilib-list=aprofile,rmprofile --with-pkgversion='Arm GNU Toolchain 14.2.Rel1 (Build arm-14.52)'
+Thread model: single
+Supported LTO compression algorithms: zlib zstd
+gcc version 14.2.1 20241119 (Arm GNU Toolchain 14.2.Rel1 (Build arm-14.52))
+COLLECT_GCC_OPTIONS='-v' '-E' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
+ /Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/14.2.1/cc1 -E -quiet -v -iprefix /Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/ -isysroot /Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../arm-none-eabi -D__USES_INITFINI__ - -mcpu=arm7tdmi -mfloat-abi=soft -marm -mlibarch=armv4t -march=armv4t -dumpbase -
+ignoring duplicate directory "/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/../../lib/gcc/arm-none-eabi/14.2.1/include"
+ignoring nonexistent directory "/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../arm-none-eabi/usr/local/include"
+ignoring duplicate directory "/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/../../lib/gcc/arm-none-eabi/14.2.1/include-fixed"
+ignoring duplicate directory "/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/../../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/include"
+ignoring duplicate directory "/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../arm-none-eabi/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/include
+ /Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/include-fixed
+ /Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/include
+End of search list.
+# 0 "<stdin>"
+# 0 "<built-in>"
+# 0 "<command-line>"
+# 1 "<stdin>"
+COMPILER_PATH=/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../libexec/gcc/arm-none-eabi/14.2.1/:/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../libexec/gcc/:/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/
+LIBRARY_PATH=/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/:/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/:/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/:/Applications/ArmGNUToolchain/14.2.rel1/arm-none-eabi/bin/../arm-none-eabi/lib/
+COLLECT_GCC_OPTIONS='-v' '-E' '-mcpu=arm7tdmi' '-mfloat-abi=soft' '-marm' '-mlibarch=armv4t' '-march=armv4t'
+wenyuc 06-16 16:47 ~>brew install cmake ninja
+cmake 4.0.3 is already installed but outdated (so it will be upgraded).
+==> Fetching downloads for: cmake and ninja
+✔︎ Bottle Manifest cmake (4.2.0)                                                                           [Downloaded   11.3KB/ 11.3KB]
+✔︎ Bottle Manifest ninja (1.13.2)                                                                          [Downloaded    9.5KB/  9.5KB]
+✔︎ Bottle ninja (1.13.2)                                                                                   [Downloaded  176.2KB/176.2KB]
+✔︎ Bottle cmake (4.2.0)                                                                                    [Downloaded   20.1MB/ 20.1MB]
+==> Upgrading cmake
+  4.0.3 -> 4.2.0
+==> Pouring cmake--4.2.0.sequoia.bottle.tar.gz
+==> Caveats
+To install the CMake documentation, run:
+  brew install cmake-docs
+==> Summary
+🍺  /usr/local/Cellar/cmake/4.2.0: 4,016 files, 66.8MB
+==> Running `brew cleanup cmake`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+Removing: /usr/local/Cellar/cmake/4.0.3... (3,870 files, 62.9MB)
+==> Pouring ninja--1.13.2.sonoma.bottle.tar.gz
+🍺  /usr/local/Cellar/ninja/1.13.2: 10 files, 444.4KB
+==> Running `brew cleanup ninja`...
+==> Caveats
+Emacs Lisp files have been installed to:
+  /usr/local/share/emacs/site-lisp/cmake
+zsh completions have been installed to:
+  /usr/local/share/zsh/site-functions
+==> cmake
+To install the CMake documentation, run:
+  brew install cmake-docs
+wenyuc 06-16 16:49 ~>

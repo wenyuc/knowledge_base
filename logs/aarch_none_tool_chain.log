@@ -1,0 +1,56 @@
+wenyuc 07-03 11:47 ~>brew install aarch64-none-elf-gcc
+Warning: No available formula with the name "aarch64-none-elf-gcc". Did you mean aarch64-elf-gcc?
+==> Searching for similarly named formulae and casks...
+==> Formulae
+aarch64-elf-gcc
+
+To install aarch64-elf-gcc, run:
+  brew install aarch64-elf-gcc
+wenyuc 07-03 11:47 ~>brew install aarch64-elf-gcc
+==> Would install 1 formula:
+aarch64-elf-gcc
+==> Downloading https://ghcr.io/v2/homebrew/core/aarch64-elf-gcc/manifests/16.1.0
+###################################################################################################################################### 100.0%
+==> Would install 2 dependencies for aarch64-elf-gcc:
+aarch64-elf-binutils
+libmpc
+==> Do you want to proceed with the installation? [y/n]
+==> Fetching downloads for: aarch64-elf-gcc
+✔︎ Bottle Manifest libmpc (1.4.1)                                                                                  Downloaded   12.0KB/ 12.0KB
+✔︎ Bottle Manifest aarch64-elf-binutils (2.46.1)                                                                   Downloaded   59.9KB/ 59.9KB
+✔︎ Bottle libmpc (1.4.1)                                                                                           Downloaded  164.3KB/164.3KB
+✔︎ Bottle aarch64-elf-binutils (2.46.1)                                                                            Downloaded    9.5MB/  9.5MB
+✔︎ Bottle aarch64-elf-gcc (16.1.0)                                                                                 Downloaded   77.0MB/ 77.0MB
+==> Installing dependencies for aarch64-elf-gcc: aarch64-elf-binutils and libmpc
+==> Installing aarch64-elf-gcc dependency: aarch64-elf-binutils
+==> Pouring aarch64-elf-binutils--2.46.1.sonoma.bottle.tar.gz
+🍺  /usr/local/Cellar/aarch64-elf-binutils/2.46.1: 247 files, 25.7MB
+==> Installing aarch64-elf-gcc dependency: libmpc
+==> Pouring libmpc--1.4.1.sequoia.bottle.tar.gz
+🍺  /usr/local/Cellar/libmpc/1.4.1: 14 files, 508.7KB
+==> Installing aarch64-elf-gcc
+==> Pouring aarch64-elf-gcc--16.1.0.sonoma.bottle.tar.gz
+🍺  /usr/local/Cellar/aarch64-elf-gcc/16.1.0: 694 files, 222.0MB
+==> Running `brew cleanup aarch64-elf-gcc`...
+Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
+Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+wenyuc 07-03 11:54 ~>ls -l $(brew --prefix aarch64-elf-gcc)/bin | grep gcc
+-r-xr-xr-x@ 2 wenyuc  admin   2044536 30 Apr 17:07 aarch64-elf-gcc
+-r-xr-xr-x@ 2 wenyuc  admin   2044536 30 Apr 17:07 aarch64-elf-gcc-16.1.0
+-r-xr-xr-x@ 1 wenyuc  admin     40152 30 Apr 17:07 aarch64-elf-gcc-ar
+-r-xr-xr-x@ 1 wenyuc  admin     40152 30 Apr 17:07 aarch64-elf-gcc-nm
+-r-xr-xr-x@ 1 wenyuc  admin     40152 30 Apr 17:07 aarch64-elf-gcc-ranlib
+wenyuc 07-03 11:57 ~>aarch64-elf-gcc --version
+aarch64-elf-gcc (GCC) 16.1.0
+Copyright (C) 2026 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+wenyuc 07-03 11:57 ~>brew --prefix aarch64-elf-gcc
+/usr/local/opt/aarch64-elf-gcc
+wenyuc 07-03 11:57 ~>cd /usr/local/opt/aarch64-elf-gcc/bin
+wenyuc 07-03 11:58 /usr/local/opt/aarch64-elf-gcc/bin>ls
+aarch64-elf-c++		aarch64-elf-gcc		aarch64-elf-gcc-nm	aarch64-elf-gcov-dump
+aarch64-elf-cpp		aarch64-elf-gcc-16.1.0	aarch64-elf-gcc-ranlib	aarch64-elf-gcov-tool
+aarch64-elf-g++		aarch64-elf-gcc-ar	aarch64-elf-gcov	aarch64-elf-lto-dump
+wenyuc 07-03 11:58 /usr/local/opt/aarch64-elf-gcc/bin>
