@@ -1,11 +1,12 @@
 
 ## 主流ARM工具链与处理器对照表
-工具链前缀	        架构	        指令集	    目标系统 (OS)	    C库	    浮点ABI             典型适用处理器/场景
-arm-none-eabi	    32位 ARM    A32/T32	    裸机 (Bare-metal)	Newlib	softfp (或软浮点)	    Cortex-M/R 系列微控制器 (如 STM32)
-arm-linux-gnueabi	32位 ARM	A32/T32	    Linux	            glibc   softfp	        早期 ARM9/ARM11，或需要软浮点兼容的 Linux 系统
-arm-linux-gnueabihf	32位 ARM	A32/T32	    Linux	            glibc	hard	        Cortex-A 系列 Linux 系统 (如 Raspberry Pi 2/3 的 32位模式)
-aarch64-none-elf	64位 ARM	A64	        裸机 (Bare-metal)	Newlib	hard (强制)	    Cortex-A53/A72/A78 等 64位处理器的裸机/内核开发 (如 Raspberry Pi 4 的 64位裸机模式)
-aarch64-linux-gnu	64位 ARM	A64	        Linux	            glibc	hard (强制)	    Cortex-A 系列 64位 Linux 系统 (如 Raspberry Pi 4 的 64位 Linux 系统)
+|工具链前缀|架构|指令集|目标系统 (OS)|C库|浮点ABI|典型适用处理器/场景|
+|:------------|:------------------|:------------------|:------------------|:------------------|:------------------|:------------------|
+|arm-none-eabi|32位|ARM A32/T32|裸机 (Bare-metal)|Newlib|softfp (或软浮点)|	    Cortex-M/R 系列微控制器 (如 STM32)|
+|arm-linux-gnueabi|	32位| ARM	A32/T32|Linux|glibc|softfp| 早期 ARM9/ARM11，或需要软浮点兼容的 Linux 系统|
+|arm-linux-gnueabihf|	32位| ARM	A32/T32|Linux|glibc|	hard|Cortex-A 系列 Linux 系统 (如 Raspberry Pi 2/3 的 32位模式)|
+|aarch64-none-elf|	64位| ARM	A64|裸机 (Bare-metal)|Newlib|	hard (强制)|	    Cortex-A53/A72/A78 等 64位处理器的裸机/内核开发 (如 Raspberry Pi 4 的 64位裸机模式)|
+|aarch64-linux-gnu|	64位| ARM	A64|Linux|glibc|	hard (强制)|	    Cortex-A 系列 64位 Linux 系统 (如 Raspberry Pi 4 的 64位 Linux 系统)|
 
 术语解释：
 软浮点 (softfp/soft)：用软件模拟浮点运算，或使用FPU但通过通用寄存器传递浮点参数，兼容性好但性能较低。
