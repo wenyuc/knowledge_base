@@ -154,3 +154,59 @@ stddef.h 使用 __SIZE_TYPE__ 定义 size_t
     ↓
 代码使用 size_t
 ```
+
+### C语言头文件之间的包含关系
+1. .c文件中只是包含了<stdio.h>,那么数据类型`size_t`在哪里定义的？
+`size_t`并不是`stdio.h`中定义的，而是由GCC编译器定义的。`stdio.h`**间接包含**了定义`size_t`的头文件（通常是`stddef.h`或GCC内部头文件）。
+
+Ubuntu(glibc)上，/usr/include/stdio.h 包含了如下代码：
+```c
+#define __need_size_t
+#define __need_NULL
+#include <stddef.h>
+
+#define __need___va_list
+#include <stdarg.h>
+```
+关键机制：
+- #define __need_size_t 告诉 stddef.h："我只需要 size_t，别给我其他东西"
+- #include <stddef.h> 引入 stddef.h
+- stddef.h 里用 `typedef __SIZE_TYPE__ size_t; 定义 size_t`
+
+`stddef.h`中定义了很多东西：
+```c
+#ifndef __SIZE_TYPE__
+211 #define __SIZE_TYPE__ long unsigned int
+212 #endif
+213 #if !(defined (__GNUG__) && defined (size_t))
+214 typedef __SIZE_TYPE__ size_t;
+215 #ifdef __BEOS__
+216 typedef long ssize_t;
+217 #endif /* __BEOS__ */
+218 #endif /* !(defined (__GNUG__) && defined (size_t)) */
+```
+`__SIZE_TYPE__` 是 GCC 在编译时根据目标平台（x86_64、ARM等）自动定义的。它的值（如 "long unsigned int"）由 GCC 在配置和编译时根据目标平台决定，定义在 gcc/config/<arch>/<arch>.h 中。
+
+如果 stdio.h 直接 #include <stddef.h>，会把 NULL、offsetof 等全部引入，可能造成：
+命名冲突（比如 stdio.h 里也可能定义 NULL）
+重复定义（多个头文件都包含 stddef.h）
+编译变慢（引入不需要的内容）
+所以 glibc 用 __need_size_t 这种选择性包含机制，只取需要的部分。
+
+**验证`size_t`定义**
+```bash
+# 找到 GCC 内部头文件路径
+gcc -print-file-name=include
+#输出：/usr/lib/gcc/x86_64-linux-gnu/13/include
+
+# 查看 stddef.h 里 size_t 的定义
+grep -n "size_t" $(gcc -print-file-name=include)/stddef.h | head -20
+# 输出：如上
+```
+而 __SIZE_TYPE__ 是编译器内置的宏（前面讨论过）：
+```bash
+gcc -dM -E - < /dev/null | grep __SIZE_TYPE__
+# #define __SIZE_TYPE__ long unsigned int
+```
+
+
