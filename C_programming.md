@@ -209,4 +209,67 @@ gcc -dM -E - < /dev/null | grep __SIZE_TYPE__
 # #define __SIZE_TYPE__ long unsigned int
 ```
 
+### 检查是否安装了某个特定的包
+```bash
+dpkg -s libc6-dev libssl-dev | grep Status
+```
+输出：install ok installed
 
+### 如何查看安装包包含的文件
+```bash
+dpkg -L libc6-dev
+#它会列出libc6-dev包所包含的文件。可以分类列出
+# 查看头文件（.h）
+dpkg -L libssl-dev | grep "\.h$"
+
+# 查看动态库（.so）
+dpkg -L libssl-dev | grep "\.so$"
+
+# 查看静态库（.a）
+dpkg -L libssl-dev | grep "\.a$"
+
+# 查看手册页（man）
+dpkg -L libssl-dev | grep "man"
+
+# 只看头文件和库
+dpkg -L libssl-dev | grep -E "\.(h|so|a)$"
+```
+### 如何查看某个文件属于哪个包
+```bash
+dpkg -S /usr/include/openssl/ssl.h
+# libssl-dev:amd64: /usr/include/openssl/ssl.h
+dpkg -S /usr/lib/x86_64-linux-gnu/libssl.so
+#libssl-dev:amd64: /usr/lib/x86_64-linux-gnu/libssl.so
+```
+### 查看为安装包的文件列表
+如果包还没装，可以用 apt-file 查看它包含哪些文件。
+```bash
+apt install apt-file
+apt-file update
+
+# 查看 libssl-dev 包含的所有文件
+apt-file list libssl-dev
+
+# 查找某个头文件属于哪个包
+apt-file search openssl/ssl.h
+
+# 查找某个库属于哪个包
+apt-file search libssl.so
+```
+
+### 如何验证开发环境是否完整
+以openssl为例，检查三要素：
+
+1. 头文件
+ls /usr/include/openssl/ssl.h
+或
+dpkg -L libssl-dev | grep "openssl/ssl.h"
+
+2. 库文件
+ls /usr/lib/x86_64-linux-gnu/libssl.so
+ls /usr/lib/x86_64-linux-gnu/libssl.a
+
+3. 手册页
+man SSL_new
+或
+dpkg -L libssl-dev | grep "man3"
