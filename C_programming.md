@@ -435,6 +435,9 @@ static void adc_filter(void) // 私有函数，外部不能调用
 const int *p;        // 指向 const int 的指针（内容不可改，指针可改）
 int *const p;        // const 指针（指针不可改，内容可改）
 const int *const p;  // 指向 const 的 const 指针（都不可改）
+char * const * p； //p is a pointer（它可以改） to (a constant pointer它不能改) to char.
+const char **p;   //p is a pointer to a pointer to a constant char.
+char ** const p;  //p is a constant pointer to a pointer to char. (p is a constant pointer)
 ```
 记忆规则：
 `const` 在 `*` 左边 → 修饰内容（`*p` 不可改）

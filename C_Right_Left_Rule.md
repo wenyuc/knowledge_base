@@ -86,6 +86,21 @@ x() 返回值也不能是数组本身（C 语言函数不能返回数组），�
 所以这三层的核心结构其实就是：
 函数返回指针 -> 指针指向数组 -> 数组元素是函数指针 -> 这些函数返回 char。
 
-**示例4 `int (*(*f[10])())[13];`**
+**示例5 `int (*(*f[10])())[13];`**
 f is an array of 10 pointers to functions returning a pointer to an array of 13 integers.
 
+**实例6 `char * const *(*next)();`**
+next is a pointer to a function returning a pointer to a constant pointer to char. 
+
+```text
+next
+ └─ *                           pointer to
+     └─ ()                      function (no args)
+         └─ *                   returning pointer to
+             └─ const.          a constant
+                 └─ *           pointer to
+                     └─ char    char
+```
+
+**实例7 `char *(*c[10])(int **p);`**
+c is an array of 10 pointers to functions returning a pointer to char, taking a pointer to a pointer to int as argument. 
