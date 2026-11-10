@@ -695,6 +695,13 @@ volatile const int debug_level = 3;
 - 中断共享变量用 volatile，不用 const
 - 指针 const 位置要分清：左边内容，右边指针
 
+### C关键字要点
+static: 控制符号可见性、声明周期.static把全局符号“藏起来”，别的文件用extern也找不到.
+const: 编译器只读约束.
+volatile: 阻止编译器缓存优化.
+extern: 跨文件应用全局符号. extern 主动找别的文件暴露出来的全局符号.
+inline: 告诉编译器，这个函数可以内联，可以提高性能.
+
 4. 局部变量指针返回会造成悬空指针(dangling pointer):
 如下代码：
 ```c

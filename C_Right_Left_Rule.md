@@ -104,3 +104,15 @@ next
 
 **实例7 `char *(*c[10])(int **p);`**
 c is an array of 10 pointers to functions returning a pointer to char, taking a pointer to a pointer to int as argument. 
+
+**实例8 `typedef void(*Handler)(int fd);`**
+`typedef`不是定义变量，而是**给一个类型起别名**.
+`Handler`是别名，它代表的类型是void (*)(int),通过Right-Left Rule知道它是一个指针,即指向"接受int,返回void的函数"的指针.
+
+几个容易引起混淆的写法：
+`void (*Handler)(int);` : 声明+定义,变量Handler为函数指针(分配8字节)，函数返回值为void，参数为int.
+如果想让Handler只是"声明"而不定义，可以这样写`extern void (*Handler)(int);` 定义在别处.
+`void *Handler(int);` : 声明函数，名为Handler，函数返回值为void *，参数为int.
+`void *Handler(int){};` : 声明+定义,定义了一个函数Handler，函数返回值为void，参数为int.且有代码实现，{}
+`typedef void Handler(int);` : Handler为别名，代表一个函数类型，函数返回值为void，参数为int
+`typedef void *Handler(int);` : Handler为别名，代表一个函数类型，函数返回值为void *,参数为int
